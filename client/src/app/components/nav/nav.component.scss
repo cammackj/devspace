@@ -1,0 +1,23 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+:host {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.form {
+    display: flex;
+
+    mat-form-field {
+        padding: 5px;
+    }
+
+    mat-icon {
+        font-size: 35px !important;
+        height: 35px;
+        width: 35px;
+    }
+}
