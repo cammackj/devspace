@@ -1,11 +1,11 @@
 <mat-toolbar class="toolbar" color="primary">
-    <button mat-icon-button class="icon" aria-label="icon-button with menu icon" *ngIf="loggedIn" (click)="logout()">
+    <button mat-icon-button class="icon" aria-label="icon-button with menu icon" *ngIf="currentUser$ | async" (click)="logout()">
         <mat-icon>menu</mat-icon>
     </button>
     <span>DevSpace</span>
     <span class="spacer"></span>
 
-    <mat-form-field appearance="fill" *ngIf="loggedIn" subscriptSizing="dynamic">
+    <mat-form-field appearance="fill" *ngIf="currentUser$ | async" subscriptSizing="dynamic">
         <mat-label>Welcome user</mat-label>
         <mat-select>
             <mat-option>Edit Profile</mat-option>
@@ -13,7 +13,7 @@
         </mat-select>
     </mat-form-field>
 
-    <form *ngIf="!loggedIn" #loginForm="ngForm" class="form" (ngSubmit)="login()" autocomplete="off">
+    <form *ngIf="!(currentUser$ | async)" #loginForm="ngForm" class="form" (ngSubmit)="login()" autocomplete="off">
         <mat-form-field appearance="fill" subscriptSizing="dynamic">
             <input matInput placeholder="Username" name="username" [(ngModel)]="model.username">
         </mat-form-field>
