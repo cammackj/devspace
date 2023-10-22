@@ -1,0 +1,13 @@
+<div class="container">
+    <div *ngIf="!registerMode">
+        <h1>DevSpace</h1>
+        <p>Sign up for DevSpace to network and collaborate with other developers</p>
+        <div>
+            <button (click)="registerToggle()">Register</button>
+            <button>Learn More</button>
+        </div>
+    </div>
+    <div *ngIf="registerMode" class="container">
+        <app-register></app-register>
+    </div>
+</div>
